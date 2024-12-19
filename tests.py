@@ -58,11 +58,6 @@ def frequency_bit_test(bits):
 
     return p_value
 
-import numpy as np
-from scipy.stats import chi2
-
-import numpy as np
-from scipy.stats import chi2
 
 def frequency_block_test(bit_sequence, block_size = 8):
 
@@ -94,7 +89,7 @@ def frequency_block_test(bit_sequence, block_size = 8):
     # Решение о принятии гипотезы о случайности
     is_random = p_value >= 0.01  # Обычно используется уровень значимости 0.01
 
-    return chi_squared, p_value, is_random
+    return  p_value
 
 
 def test_runs(bits):

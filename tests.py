@@ -1,9 +1,6 @@
-import random
 import numpy as np
-from scipy.stats import chisquare
 import math
 from scipy.stats import chi2
-from scipy.special import erfc
 import scipy.stats as stats
 import numpy as np
 from scipy.fftpack import fft
@@ -58,7 +55,6 @@ def frequency_bit_test(bits):
 
     return p_value
 
-
 def frequency_block_test(bit_sequence, block_size = 8):
 
     # Проверка входных данных
@@ -86,11 +82,7 @@ def frequency_block_test(bit_sequence, block_size = 8):
     # Вычисление p-значения
     p_value = chi2.sf(chi_squared, df=num_blocks)
 
-    # Решение о принятии гипотезы о случайности
-    is_random = p_value >= 0.01  # Обычно используется уровень значимости 0.01
-
     return  p_value
-
 
 def test_runs(bits):
 

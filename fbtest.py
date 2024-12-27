@@ -1,25 +1,18 @@
 import numpy as np
-from scipy.stats import chi2
+import matplotlib.pyplot as plt
 
-def frequency_block_test(bit_sequence, block_size=8):
+# Генерация случайной последовательности
+np.random.seed(42)  # Для воспроизводимости
+sequence = np.random.randint(0, 100, size=100000)
 
-    n = len(bit_sequence)
+# Вычисление разностей между соседними элементами
+differences = np.diff(sequence)
 
-    # Разделяем последовательность на блоки
-    num_blocks = n // block_size
-    blocks = np.array(bit_sequence[:num_blocks * block_size]).reshape((num_blocks, block_size))
-
-    # Подсчёт частоты единиц в каждом блоке
-    proportions = blocks.mean(axis=1)
-
-    # Расчёт статистики хи-квадрат
-    chi_squared = 4 * block_size * np.sum((proportions - 0.5) ** 2)
-
-    # Вычисление p-значения
-    p_value = chi2.sf(chi_squared, df=num_blocks)
-
-    # Решение о принятии гипотезы о случайности
-    is_random = p_value >= 0.01  # Обычно используется уровень значимости 0.01
-
-    return p_value
-
+# Построение гистограммы
+plt.figure(figsize=(8, 6))
+plt.hist(differences, bins=10, color='skyblue', edgecolor='black')
+plt.title('Гистограмма разностей соседних элементов случайной последовательности')
+plt.xlabel('Значение разности')
+plt.ylabel('Частота')
+plt.grid(True, alpha=0.6)
+plt.show()

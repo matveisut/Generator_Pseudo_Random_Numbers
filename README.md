@@ -1,2 +1,2 @@
-# Generator_Pseudo_Random_Numbers
- Generator_Pseudo_Random_Numbers
+# Generators_Pseudo_Random_Numbers
+Сравнение генераторов случайных чисел, подробности в pdf файле
